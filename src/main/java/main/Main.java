@@ -58,10 +58,10 @@ public class Main {
 
         // Create biography
         Biography biography = new Biography("John D., the story of my life...");
+        dao.createBiography(biography);
         biography.setAuthor(retrievedAuthor);
         retrievedAuthor.setBiography(biography);
         dao.updateAuthor(retrievedAuthor);
-        dao.createBiography(biography);
         // Update biography details
         biography.setDetails("John D., an updated story of my life...");
         dao.updateBiography(biography);
