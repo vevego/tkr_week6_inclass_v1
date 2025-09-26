@@ -1,35 +1,38 @@
 package entity;
 import jakarta.persistence.*;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
+@Table(name="borrowedbook")
 public class BorrowedBook {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long borrowedBookId;
 
     @Column
-    Date borrowDate;
+    LocalDate borrowDate;
 
     @ManyToOne
+    @JoinColumn(name="studentId")
     private Student student;
 
     @ManyToOne
+    @JoinColumn(name="bookId")
     private Book book;
 
     public BorrowedBook() {}
 
-    public BorrowedBook(Date borrowDate, Student student, Book book) {
+    public BorrowedBook(LocalDate borrowDate, Student student, Book book) {
         this.borrowDate = borrowDate;
         this.student = student;
         this.book = book;
     }
 
     public long getId() {
-        return id;
+        return borrowedBookId;
     }
-    public Date getBorrowDate() {
+    public LocalDate getBorrowDate() {
         return borrowDate;
     }
     public Student getStudent() {
@@ -38,7 +41,7 @@ public class BorrowedBook {
     public Book getBook() {
         return book;
     }
-    public void setDate(Date borrowDate) {
+    public void setDate(LocalDate borrowDate) {
         this.borrowDate = borrowDate;
     }
     public void setStudent(Student student) {

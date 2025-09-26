@@ -1,11 +1,14 @@
 package entity;
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
+@Table(name="student")
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long studentId;
     @Column
     private String name;
 
@@ -14,7 +17,7 @@ public class Student {
         this.name = name;
     }
     public long getId() {
-        return id;
+        return studentId;
     }
     public String getName() {
         return name;

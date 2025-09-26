@@ -75,7 +75,7 @@ public class LibraryDAO {
         em.getTransaction().commit();
     }
 
-    public void Book(Book book){
+    public void createBook(Book book){
         em.getTransaction().begin();
         em.persist(book);
         em.getTransaction().commit();
@@ -117,5 +117,10 @@ public class LibraryDAO {
             em.remove(book);
         }
         em.getTransaction().commit();
+    }
+
+    public void close() {
+        if (em != null && em.isOpen()) em.close();
+        if (emf != null && emf.isOpen()) emf.close();
     }
 }

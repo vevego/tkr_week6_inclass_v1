@@ -3,14 +3,14 @@ package entity;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name="author")
 public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long authorId;
     @Column
     private String name;
-    @OneToOne()
-    @JoinColumn(name="id")
+    @OneToOne(mappedBy = "author")
     private Biography biography;
 
     public Author() {}
@@ -19,7 +19,7 @@ public class Author {
     }
 
     public long getId() {
-        return id;
+        return authorId;
     }
     public String getName() {
         return name;

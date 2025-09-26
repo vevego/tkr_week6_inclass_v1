@@ -3,6 +3,7 @@ package entity;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name="printedbook")
 public class PrintedBook extends Book {
     @Column
     private int pageCount;

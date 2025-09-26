@@ -2,6 +2,7 @@ package entity;
 
 import jakarta.persistence.*;
 @Entity
+@Table(name="ebook")
 public class EBook extends Book {
     @Column
     private String downloadLink;
@@ -16,8 +17,8 @@ public class EBook extends Book {
     public String getDownloadLink() {
         return downloadLink;
     }
-    public void setDownloadLink(String downloadlink) {
-        this.downloadLink = downloadlink;
+    public void setDownloadLink(String downloadLink) {
+        this.downloadLink = downloadLink;
     }
 }
 
